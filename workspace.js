@@ -1447,20 +1447,21 @@ cpdefine("inline:com-chilipeppr-workspace-grbl", ["chilipeppr_ready"], function(
             // http://jsfiddle.net/jarret/b5L2rtgc/ //alternate test version of grbl controller
             // com-chilipeppr-grbl
             chilipeppr.load(
-                "com-chilipeppr-grbl",
-                "http://fiddle.jshell.net/jarret/9aaL8jg4/show/light/",
-
-                function() {
-                    cprequire(
-                        ["inline:com-chilipeppr-widget-grbl"], //"inline:com-chilipeppr-widget-spconsole"],
-                        //, "inline:com-chilipeppr-serialport-spselector"],
-
-                        function(grbl) { //,spconsole) {
-
-                            grbl.init();
-
-                        });
-                });
+            "com-chilipeppr-grbl",
+             "http://raw.githubusercontent.com/jpadie/grbl1-test-widget/master/auto-generated-widget.html",
+              function() {
+                // Callback after widget loaded into #myDivWidgetGrbl
+                // Now use require.js to get reference to instantiated widget
+                cprequire(
+                  ["inline:com-chilipeppr-widget-grbl"], // the id you gave your widget
+                  function(myObjWidgetGrbl) {
+                    // Callback that is passed reference to the newly loaded widget
+                    console.log("Widget / GRBL 1.1 compatibility test just got loaded.", myObjWidgetGrbl);
+                    myObjWidgetGrbl.init();
+                  }
+                );
+              }
+            );
 
             /*
             // WebRTC Client com-chilipeppr-webrtcclient
